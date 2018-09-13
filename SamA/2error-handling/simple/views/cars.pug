@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  
+  if (cars)  
+    p List of cars
+    .students.col-md-8
+    table.table#studentList
+      thead
+        th Make
+        th Is Common
+        th Country
+      each car in cars
+        tr
+          td #{car.make_display}
+          td #{car.make_is_common}
+          td #{car.make_country}
+  else
+    p No Students Found
