@@ -1,0 +1,17 @@
+{
+  "name": "Ed",
+  "version": "1.0.0",
+  "description": "Ed Saurusaitis\r edward.saurusaitis@ssa.gov",
+  "main": "footballPredictions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.2",
+    "knex": "^0.15.2",
+    "pg": "^7.4.3"
+  }
+}
