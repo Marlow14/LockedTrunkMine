@@ -8,7 +8,7 @@ var moment = require('moment');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var hobbiesRouter = require('./routes/hobbies');
-var gameRouter = require('./routes/games');
+var gameRouter = require('./routes/score');
 var favicon = require('serve-favicon');
 
 var app = express();
