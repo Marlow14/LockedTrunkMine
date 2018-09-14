@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= title
+
+  if (cars)  
+    table(style='width:80%', border='1') List of cars
+      tr
+        th ID
+        th Make
+        th Common
+        th Country
+      each car in cars
+        tr
+          td= car.id
+          td= car.make_display
+          td= car.make_is_common
+          td= car.make_country
+  else if (country)
+    table(style='width:80%', border='1') List of cars by country
+      tr
+        th ID
+        th Make
+        th Common
+        th Country
+      each country in countries
+        tr
+          td= country.id
+          td= country.make_display
+          td= country.make_is_common
+          td= country.make_country
+
+  else
+    p No Cars Found
