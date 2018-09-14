@@ -1,0 +1,19 @@
+[
+    { 
+       "name": "knitting", 
+       "lengthInYarsAtHobby": 4 
+    },
+    { 
+        "name": "gardening", 
+        "lengthInYarsAtHobby": 4 
+     },
+     { 
+        "name": "reading", 
+        "lengthInYarsAtHobby": 20 
+     },
+     { 
+        "name": "jogging", 
+        "lengthInYarsAtHobby": 1 
+     }
+]
+       
