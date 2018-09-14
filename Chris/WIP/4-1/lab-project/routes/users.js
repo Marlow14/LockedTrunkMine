@@ -1,6 +1,14 @@
 var express = require('express');
-const expressPromiseRouter = require("express-promise-router");
-const router = expressPromiseRouter(); 
+
+var expressPromiseRouter = require("express-promise-router");
+const router = expressPromiseRouter();
+
+// /* GET users listing. */
+// router.get('/', function(req, res, next) {
+//  // res.send('respond with a resource');
+//   res.render('users', { title: 'Users' });
+// });
+
 
 var Model = require('../models/User');
 
@@ -61,3 +69,6 @@ router.get('/:id', getUser);
 
 /* Exports all methods */
 module.exports = router
+
+
+module.exports = router;

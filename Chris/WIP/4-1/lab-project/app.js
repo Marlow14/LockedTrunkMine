@@ -4,16 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const customErrors = require('./custom-errors'); 
-const debug = require('debug');
+
 var moment = require('moment');
+
 const knexLogger = require('knex-logger');
 
-const db  = require('./db');
+const customErrors = require('./custom-errors');
+
+const db = require('./db');
 
 var app = express();
-
-app.use(knexLogger(db));
 
 const expressPromiseRouter = require("express-promise-router");
 const router = expressPromiseRouter();
@@ -31,47 +31,47 @@ router.use(cookieParser());
 router.use(express.static(path.join(__dirname, 'public')));
 
 const unhandledError = require("unhandled-error");
-let crashOptions = {doNotCrash : true};
-let errorReporter = unhandledError( (err) => {
-                            /* This should eventually be hooked into some sort of error reporting
-                              mechanism. SMS text nessaging....etc. bug */
-                            console.error("UNHANDLED ERROR:", err.stack);
-                          }
-                    , crashOptions);
+let crashOptions = { doNotCrash: true };
+let errorReporter = unhandledError((err) => {
+  /* This should eventually be hooked into some sort of error reporting
+    mechanism. SMS text nessaging....etc. bug */
+  console.error("UNHANDLED ERROR:", err.stack);
+}
+  , crashOptions);
 
 /* The 'state' object is an object that we pass to everything that needs some
    sort of stateful dependency; all of the stateful dependencies are initialized
    here in server.js, and then passed into the modules that need them using a
    wrapper function. The wrapper function can unpack the stateful dependencies
    that it needs, eg. using object destructuring. */
-   let state = {
-    db: db,
-		errorReporter: errorReporter
-   }
- 
+let state = {
+  db: db,
+  errorReporter: errorReporter
+}
+
 
 router.use(function (req, res, next) {
   console.log(`Time: ${moment().format('MMMM Do YYYY, h:mm:ss a')}  `);
   next();
 });
 
-/* Include Route files */
+/* Main routes */
 const index = require('./routes/index')(state);
 const users = require('./routes/users');
 const students = require('./routes/students')(state);
 
-/* Main routes */
 router.use('/', index);
 router.use('/users', users);
 router.use('/students', students);
 
+
 // catch 404 and forward to error handler
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
   throw new customErrors.NotFoundError("404 Resource Not Found");
 });
 
 router.use(require("./middleware/error-handler")(state));
-
 app.use(router);
+app.use(knexLogger(db));
 
 module.exports = app;
