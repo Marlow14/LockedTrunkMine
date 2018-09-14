@@ -56,7 +56,7 @@ router.use(function (req, res, next) {
 });
 
 /* Include Route files */
-const index = require('./routes/index');
+const index = require('./routes/index')(state);
 const users = require('./routes/users');
 const students = require('./routes/students')(state);
 

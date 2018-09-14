@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  
+  if (hobbies)  
+    p List of scores
+    .students.col-md-8
+    table.table#studentList
+      thead
+        th Home team 
+        th Away Team 
+        th Home Score
+        th Away Score
+      each score in scores
+        tr
+          td #{score.hometeam} 
+          td #{score.awayteam} 
+          td #{score.awayscore} 
+          td #{score.homecore} 
+          td #{score.dateofgame}
+ 
+  else
+    p No Scores found
+

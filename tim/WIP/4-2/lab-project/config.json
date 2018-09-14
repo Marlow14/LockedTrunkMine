@@ -1,0 +1,9 @@
+{
+	"env": "development",
+	"database": {
+		"hostname": "localhost",
+		"username": "postgres",
+		"password": "password",
+		"database": "studentmanagement"
+	}
+}
