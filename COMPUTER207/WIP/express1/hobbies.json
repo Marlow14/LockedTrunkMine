@@ -1,0 +1,16 @@
+{
+    "Hobbies": [
+      {
+        "name": "planting",
+        "lengthInYear": 5       
+      },
+      {
+        "name": "gardening",
+        "lengthInYear": 1 
+      },
+      {
+        "name": "reading",
+        "lengthInYear": 20 
+      }
+    ]
+}
