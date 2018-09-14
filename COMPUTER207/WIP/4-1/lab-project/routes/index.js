@@ -5,6 +5,8 @@ const customErrors = require('../custom-errors');
 
 const Promise = require("bluebird");
 
+const moment = require("moment");
+
 module.exports = function({db}) {
 
 /* GET home page. */
@@ -13,7 +15,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('admin/login');
+  req.session.userId = user.id;
+	req.saveSession();
+	console.log(`Saved the user session`);
+	res.redirect("/");
 });
 
 router.post('/login', (req, res, next) => {
@@ -36,5 +41,18 @@ router.post('/login', (req, res, next) => {
             }
       })
 });
+
+router.use(function (req, res, next) {
+  console.log(`Time: ${moment().format('MMMM Do YYYY, h:mm:ss a')}  `);
+
+  if (req.session.views) {
+    req.session.views++
+  } else {
+    req.session.views = 1
+  }
+  console.log(`*** ID:${req.sessionID} with UserID: ${req.session.userId} has: req.session.views = ${req.session.views}`);
+  next();
+});
+
 return router;
 }

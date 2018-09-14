@@ -9,6 +9,8 @@ const debug = require('debug');
 var moment = require('moment');
 const knexLogger = require('knex-logger');
 
+const config = require('./config.json');
+
 const db  = require('./db');
 
 var app = express();
@@ -21,6 +23,16 @@ const router = expressPromiseRouter();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+const expressSession = require('express-session');
+
+router.use(expressSession({
+  secret: config.secret,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+router.use(require("./middleware/session-promises"));
 
 // uncomment after placing your favicon in /public
 router.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
