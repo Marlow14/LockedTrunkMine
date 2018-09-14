@@ -1,0 +1,14 @@
+[
+    {
+        "name":"Hunting",
+        "lengthInYearsAtHobby":3
+    },
+    {
+        "name":"Fishing",
+        "lengthInYearsAtHobby":15
+    },
+    {
+        "name":"Bowling",
+        "lengthInYearsAtHobby":3
+    }
+]

@@ -1,0 +1,27 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "0-create-table.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Judy Lipinski",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "moment": "^2.22.2",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.18.4",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
