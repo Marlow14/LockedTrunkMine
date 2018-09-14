@@ -3,9 +3,6 @@ var express = require('express');
 var path = require('path');
 //var logger = require('morgan');
 
-var knex = require('knex');
-const db = knex(require('./knexfile'));
-
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
@@ -24,7 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/cars', require('./routes/cars'));
 app.use('/unique', require('./routes/unique'));
-app.use('/scores', require('./routes/scores')({db}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
