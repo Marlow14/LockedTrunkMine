@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  
+  if (cars)  
+    p List of cars
+    .students.col-md-8
+    table.table#studentList
+      thead
+        th Country
+        th Occurence
+      each car in cars
+        tr
+          td #{car.country_name}
+          td #{car.unique_count}
+  else
+    p No Students Found

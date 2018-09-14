@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 Hobbies
+    table
+        tr
+            th Name
+            th Years
+        each hobby in hobbies
+            tr
+                td= hobby.name
+                td= hobby.years
+
