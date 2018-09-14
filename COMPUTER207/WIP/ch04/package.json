@@ -1,0 +1,19 @@
+{
+  "name": "ch04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ceateTable.js",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
