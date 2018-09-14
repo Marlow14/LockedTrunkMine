@@ -1,9 +1,11 @@
 {
     "env": "development",
+    "secret": "ovHNJYAW+hVr05WKDdwp8urONP/8SJ5KiOi02XgQ5od94EgHxWIiYKXNJj428Mu4",
     "database": {
         "hostname": "localhost",
         "username": "postgres",
         "password": "password",
         "database": "studentmanagement"
+        
     }
 }

@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const expressSession = require('express-session');
 
 var moment = require('moment');
 
@@ -13,6 +14,8 @@ const customErrors = require('./custom-errors');
 
 const db = require('./db');
 
+const config = require('./config');
+
 var app = express();
 
 const expressPromiseRouter = require("express-promise-router");
@@ -21,6 +24,14 @@ const router = expressPromiseRouter();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+router.use(expressSession({
+	secret: config.secret,
+	resave: false,
+	saveUninitialized: false,
+}));
+
+router.use(require("./middleware/sessions-promises"));
 
 // uncomment after placing your favicon in /public
 router.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -52,6 +63,14 @@ let state = {
 
 router.use(function (req, res, next) {
   console.log(`Time: ${moment().format('MMMM Do YYYY, h:mm:ss a')}  `);
+
+	if (req.session.views) {
+		req.session.views++
+	} else {
+		req.session.views = 1
+	}
+  console.log(`*** ID:${req.sessionID} with UserID: ${req.session.userId} has: req.session.views = ${req.session.views}`);
+  
   next();
 });
 
