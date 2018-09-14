@@ -55,8 +55,9 @@ router.use(function (req, res, next) {
   console.log(`Time: ${moment().format('MMMM Do YYYY, h:mm:ss a')}  `);
   next();
 });
-   
-const index = require('./routes/index');
+
+/* Include Route files */
+const index = require('./routes/index')(state);
 const users = require('./routes/users');
 const students = require('./routes/students')(state);
 
