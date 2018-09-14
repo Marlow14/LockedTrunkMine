@@ -3,6 +3,10 @@ var express = require('express');
 var path = require('path');
 //var logger = require('morgan');
 
+const Promise = require("bluebird");
+const knex = require("knex");
+let db = knex(require("./knexfile"));
+
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
