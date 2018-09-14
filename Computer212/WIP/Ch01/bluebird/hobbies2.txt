@@ -1,0 +1,9 @@
+{
+    "name":"Ami",
+    "age":21,
+    "Hobbies": [
+        { "name":"Photography", "years": "5" },
+        { "name":"Reading", "years": "15" },
+        { "name":"Sleeping", "years": "28" }
+    ]
+ }
