@@ -2,7 +2,7 @@ var express = require('express');
 const expressPromiseRouter = require("express-promise-router");
 const router = expressPromiseRouter(); 
 
-var Model = require('./../models/User');
+var Model = require('../models/User');
 
 /* Save a user */
 var saveUser = function (req, res) { 

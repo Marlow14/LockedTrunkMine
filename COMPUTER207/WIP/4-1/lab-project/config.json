@@ -5,6 +5,7 @@
 		"username": "postgres",
 		"password": "password",
 		"database": "studentmanagement"
-	}
+	},
+	"secret": "TBEQe6KaURPIPjTDPfXFuhXeAcfAbqoe5MNl1C/jM/dkkjeHFqOS/elRgMzl5eRu" 
 }
 
